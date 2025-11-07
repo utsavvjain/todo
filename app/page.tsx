@@ -40,7 +40,7 @@ export default function Home() {
     e.preventDefault()
     if (!newTodo.trim()) return
     const res = await fetch('/api/todos', {
-      method: 'POST',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTodo })
     })
@@ -52,10 +52,10 @@ export default function Home() {
 
   const toggleTodo = async (id: number, completed: boolean) => {
     await fetch(`/api/todos/${id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ completed: !completed })
-    })
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ completed: !completed }),
+    });
     fetchTodos()
   }
 
