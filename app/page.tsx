@@ -52,7 +52,7 @@ export default function Home() {
 
   const toggleTodo = async (id: number, completed: boolean) => {
     await fetch(`/api/todos/${id}`, {
-      method: 'PUT',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !completed })
     })
